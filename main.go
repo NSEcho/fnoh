@@ -27,8 +27,6 @@ func main() {
 			cmd := exec.Command("codesign", "-dv", appPath)
 			cmd.Stderr = buf
 			if err := cmd.Run(); err != nil {
-				fmt.Fprintf(os.Stderr, "[-] Error running codesign against %s: %v\n",
-					appPath, err)
 				continue
 			}
 			flags := getFlags(buf.String())
